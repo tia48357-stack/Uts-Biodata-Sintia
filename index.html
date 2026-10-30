@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website biodata pribadi Sintia, mahasiswa Informatika Universitas Cokroaminoto Palopo.">
+    <title>Sintia | Personal Website</title>
+
+    <style>
+        /* ===== DASAR WEBSITE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navy: #17243b;
+            --navy-light: #263954;
+            --gold: #c5a45b;
+            --cream: #faf8f2;
+            --white: #ffffff;
+            --text: #555555;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ===== NAVBAR ===== */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 242, 0.96);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+       .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+
+    /* Menyamarkan latar belakang gambar */
+    mix-blend-mode: multiply;
+}
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 27px;
+            color: var(--navy);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ===== BERANDA ===== */
+        .hero {
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: auto;
+            padding: 130px 7% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content h3 {
+            font-size: 17px;
+            color: var(--navy-light);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: var(--text);
+            max-width: 570px;
+            font-size: 15px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 13px 30px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 350px;
+            height: 350px;
+            flex-shrink: 0;
+            padding: 9px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8d49d, #a98235);
+            box-shadow: 0 15px 40px rgba(23,36,59,0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            border-radius: 50%;
+            border: 5px solid var(--cream);
+        }
+
+        /* ===== BAGIAN UMUM ===== */
+        section:not(.hero) {
+            padding: 90px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            margin-top: 8px;
+        }
+
+        .section-heading p {
+            color: var(--text);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* ===== TENTANG SAYA ===== */
+        .about {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .about .section-heading h2 {
+            color: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #e0e3e9;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .about-quote {
+            margin-top: 35px;
+            padding: 25px;
+            border-left: 3px solid var(--gold);
+            background: rgba(255,255,255,0.06);
+            font-style: italic;
+            color: #f1dfb4;
+        }
+
+        /* ===== BIODATA ===== */
+        .biodata-container {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .bio-item {
+            background: var(--white);
+            padding: 20px 23px;
+            border-radius: 12px;
+            border: 1px solid #eee9dc;
+            transition: 0.3s;
+        }
+
+        .bio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .bio-item small {
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .bio-item p {
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* ===== PENDIDIKAN ===== */
+        .education {
+            background: #f0ede4;
+        }
+
+        .timeline {
+            max-width: 750px;
+            margin: auto;
+            border-left: 2px solid var(--gold);
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 30px 15px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 13px;
+            height: 13px;
+            position: absolute;
+            left: -37px;
+            top: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--cream);
+        }
+
+        .timeline-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* ===== PRESTASI ===== */
+        .achievement-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            padding: 30px 23px;
+            border-radius: 14px;
+            border: 1px solid #eee9dc;
+            transition: 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .achievement-number {
+            color: var(--gold);
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .achievement-card h3 {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        .achievement-card p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* ===== KUTIPAN ===== */
+        .closing {
+            text-align: center;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .closing h2 {
+            font-size: 28px;
+            max-width: 750px;
+            margin: auto;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .closing p {
+            margin-top: 20px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #101a2b;
+            color: #cbd0d9;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* ===== TOMBOL KE ATAS ===== */
+        .back-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 43px;
+            height: 43px;
+            border: none;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            z-index: 900;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
+        /* ===== ANIMASI ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 850px) {
+            .hero {
+                gap: 30px;
+            }
+
+            .hero-image {
+                width: 290px;
+                height: 290px;
+            }
+
+            .achievement-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 15px 6%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                display: none;
+                padding: 10px 0;
+                box-shadow: 0 8px 15px rgba(0,0,0,0.06);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 120px 7% 70px;
+            }
+
+            .hero-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-content p {
+                margin: auto;
+            }
+
+            .biodata-container {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-container {
+                grid-template-columns: 1fr;
+            }
+
+            section:not(.hero) {
+                padding: 70px 7%;
+            }
+
+            .section-heading h2 {
+                font-size: 28px;
+            }
+
+            .closing h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">
+    <img src="logo-sintia.png" alt="Logo Sintia">
+</a>
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Buka menu navigasi" aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Beranda</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#biodata">Biodata</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+                <li><a href="#achievement">Prestasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BERANDA -->
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <div class="hero-label">WELCOME TO MY PERSONAL WEBSITE</div>
+
+            <h1>Hello, I'm <span>Sintia.</span></h1>
+
+            <h3>Informatics Student | Web Development Enthusiast</h3>
+
+            <p>
+                Di balik setiap baris kode, ada ide yang menunggu untuk
+                diwujudkan. Saya percaya bahwa teknologi bukan hanya
+                tentang menciptakan sistem, tetapi tentang menghadirkan
+                solusi dan memberikan manfaat bagi kehidupan.
+            </p>
+
+            <a href="#about" class="hero-button">Kenali Saya</a>
+        </div>
+
+        <div class="hero-image reveal">
+            <img src="foto-sintia.jpg" alt="Foto profil Sintia">
+        </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section class="about" id="about">
+        <div class="section-heading reveal">
+            <span>GET TO KNOW ME</span>
+            <h2>Tentang Saya</h2>
+        </div>
+
+        <div class="about-content reveal">
+            <p>
+                Perkenalkan, saya Sintia, seorang mahasiswa Program Studi
+                Informatika di Universitas Cokroaminoto Palopo. Saya memiliki
+                ketertarikan dalam bidang teknologi informasi, khususnya
+                pengembangan website.
+            </p>
+
+            <p>
+                Bagi saya, menjadi mahasiswa bukan hanya tentang mengikuti
+                perkuliahan, tetapi juga tentang terus belajar, mencoba hal
+                baru, dan mengembangkan kemampuan diri. Setiap pengalaman
+                merupakan kesempatan untuk bertumbuh dan menjadi lebih baik.
+            </p>
+
+            <p>
+                Saya ingin menjadikan ilmu yang saya pelajari sebagai bekal
+                untuk menciptakan sesuatu yang bermanfaat, baik bagi diri
+                sendiri maupun orang lain.
+            </p>
+
+            <div class="about-quote">
+                "Code is not just about writing instructions, it's about
+                turning ideas into solutions that make a difference."
+            </div>
+        </div>
+    </section>
+
+    <!-- BIODATA -->
+    <section id="biodata">
+        <div class="section-heading reveal">
+            <span>PERSONAL INFORMATION</span>
+            <h2>Biodata Diri</h2>
+            <p>Informasi singkat mengenai diri saya.</p>
+        </div>
+
+        <div class="biodata-container">
+            <div class="bio-item reveal">
+                <small>Nama Lengkap</small>
+                <p>Sintia</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Jenis Kelamin</small>
+                <p>Perempuan</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Tempat, Tanggal Lahir</small>
+                <p>Tobela, 25 November 2005</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Agama</small>
+                <p>Islam</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Program Studi</small>
+                <p>Informatika</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Fakultas</small>
+                <p>Teknik Komputer</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Universitas</small>
+                <p>Universitas Cokroaminoto Palopo</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Angkatan</small>
+                <p>2024</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Konsentrasi</small>
+                <p>Website</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Anak Ke</small>
+                <p>7 dari 8 bersaudara</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Nama Ayah</small>
+                <p>Sudding</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Nama Ibu</small>
+                <p>Masnia</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Alamat</small>
+                <p>Desa Tobela, Kecamatan Porehu</p>
+            </div>
+
+            <div class="bio-item reveal">
+                <small>Kabupaten, Provinsi</small>
+                <p>Kolaka Utara, Sulawesi Tenggara</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENDIDIKAN -->
+    <section class="education" id="education">
+        <div class="section-heading reveal">
+            <span>MY EDUCATION</span>
+            <h2>Riwayat Pendidikan</h2>
+            <p>Perjalanan pendidikan yang telah saya tempuh.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <h3>SDN 1 Tobela</h3>
+                <p>Sekolah Dasar</p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <h3>SMPN Satap Tobela</h3>
+                <p>Sekolah Menengah Pertama</p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <h3>SMA Negeri 1 Batu Putih</h3>
+                <p>Sekolah Menengah Atas</p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <h3>Universitas Cokroaminoto Palopo</h3>
+                <p>Program Studi Informatika · Angkatan 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESTASI -->
+    <section id="achievement">
+        <div class="section-heading reveal">
+            <span>MY ACHIEVEMENTS</span>
+            <h2>Pengalaman & Pencapaian</h2>
+            <p>Beberapa pengalaman dan pencapaian dalam perjalanan saya.</p>
+        </div>
+
+        <div class="achievement-container">
+
+            <div class="achievement-card reveal">
+                <div class="achievement-number">01</div>
+                <h3>Program Kreativitas Mahasiswa</h3>
+                <p>
+                    Berpartisipasi dalam Program Kreativitas Mahasiswa (PKM)
+                    dan berhasil lolos pada tahap pendanaan.
+                </p>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-number">02</div>
+                <h3>Penulis Buku</h3>
+                <p>
+                    Menerbitkan buku berjudul "Pengantar Keamanan Komputer"
+                    sebagai salah satu kontribusi dalam bidang ilmu
+                    pengetahuan dan teknologi.
+                </p>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-number">03</div>
+                <h3>Duta Inspirasi Mahasiswa 2026</h3>
+                <p>
+                    Terpilih sebagai finalis Duta Inspirasi Mahasiswa 2026.
+                    Sebuah pengalaman untuk terus belajar, berkembang,
+                    dan memberikan inspirasi melalui tindakan nyata.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PENUTUP -->
+    <section class="closing">
+        <div class="reveal">
+            <h2>
+                "Setiap perjalanan memiliki prosesnya sendiri.
+                Terus belajar, berani mencoba, dan jadilah
+                seseorang yang membawa manfaat."
+            </h2>
+
+            <p>THANK YOU FOR VISITING MY WEBSITE</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <span id="year"></span> <span>Sintia</span>.
+            Personal Website | All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- TOMBOL KEMBALI KE ATAS -->
+    <button class="back-to-top" id="backToTop"
+        aria-label="Kembali ke atas">↑</button>
+
+    <script>
+        // ===== MENU NAVIGASI MOBILE =====
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+
+            const isOpen = navLinks.classList.contains("show");
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Tutup menu setelah salah satu link diklik
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("show");
+                menuToggle.textContent = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // ===== ANIMASI SAAT SCROLL =====
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        revealElements.forEach(function(element) {
+            revealObserver.observe(element);
+        });
+
+        // ===== TOMBOL KEMBALI KE ATAS =====
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        backToTop.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // ===== TAHUN OTOMATIS PADA FOOTER =====
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // ===== MENU AKTIF BERDASARKAN POSISI SCROLL =====
+        const pageSections = document.querySelectorAll(
+            "section[id]"
+        );
+
+        const navigationLinks = document.querySelectorAll(
+            ".nav-links a"
+        );
+
+        window.addEventListener("scroll", function() {
+            let currentSection = "";
+
+            pageSections.forEach(function(section) {
+                const sectionTop = section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+
+            navigationLinks.forEach(function(link) {
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
